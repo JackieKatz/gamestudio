@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam热销游戏展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #2a5298;
+        }
+
+        .game-content {
+            padding: 20px;
+        }
+
+        .game-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .game-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .price-free {
+            color: #27ae60;
+        }
+
+        .price-discount {
+            color: #e74c3c;
+        }
+
+        .price-original {
+            color: #2c3e50;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+
+        .price-regular {
+            color: #2c3e50;
+        }
+
+        .game-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .buy-button {
+            width: 100%;
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .buy-button:hover {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Steam热销游戏</h1>
+        
+        <div class="games-grid">
+            <div class="game-card">
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/capsule_sm_120.jpg" alt="Counter-Strike 2" class="game-image">
+                <div class="game-content">
+                    <h2 class="game-title">Counter-Strike 2</h2>
+                    <div class="game-price price-free">免费游戏</div>
+                    <div class="game-date">发布日期: 2012年8月21日</div>
+                    <button class="buy-button">立即游玩</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="discount-badge">-38%</div>
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3527290/9453e498e005b2b8bd6997e4377b015c14bb4c9b/capsule_sm_120_alt_assets_0.jpg" alt="PEAK" class="game-image">
+                <div class="game-content">
+                    <h2 class="game-title">PEAK</h2>
+                    <div class="game-price price-discount">
+                        Rp 43,399
+                        <span class="price-original">Rp 69,999</span>
+                    </div>
+                    <div class="game-date">发布日期: 2025年6月16日</div>
+                    <button class="buy-button">添加到购物车</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1675200/capsule_sm_120.jpg" alt="Steam Deck" class="game-image">
+                <div class="game-content">
+                    <h2 class="game-title">Steam Deck</h2>
+                    <div class="game-price price-regular">硬件设备</div>
+                    <div class="game-date">发布日期: 2025年1月17日</div>
+                    <button class="buy-button">查看详情</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2807960/6b9c615389a493dc89bbb51eec1f91d32c2562f0/capsule_sm_120.jpg" alt="Battlefield 6" class="game-image">
+                <div class="game-content">
+                    <h2 class="game-title">Battlefield™ 6</h2>
+                    <div class="game-price price-regular">Rp 799,000</div>
+                    <div class="game-date">发布日期: 2025年10月10日</div>
+                    <button class="buy-button">预购游戏</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="discount-badge">-65%</div>
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/56bc5c6d8d285e9a470a76b7c4d84f087686a556/capsule_sm_120_alt_assets_8.jpg" alt="Cyberpunk 2077" class="game-image">
+                <div class="game-content">
+                    <h2 class="game-title">Cyberpunk 2077</h2>
+                    <div class="game-price price-discount">
+                        Rp 244,999
+                        <span class="price-original">Rp 699,999</span>
+                    </div>
+                    <div class="game-date">发布日期: 2020年12月9日</div>
+                    <button class="buy-button">添加到购物车</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/812140/capsule_sm_120.jpg" alt="Assassin's Creed Odyssey" class="game-image">
+                <div class="game-content">
+                    <h2 class="game-title">Assassin's Creed Odyssey</h2>
+                    <div class="game-price price-regular">Rp 899,000</div>
+                    <div class="game-date">发布日期: 2018年10月5日</div>
+                    <button class="buy-button">添加到购物车</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="discount-badge">-50%</div>
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/892970/capsule_sm_120.jpg" alt="Valheim" class="game-image">
+                <div class="game-content">
+                    <h2 class="game-title">Valheim</h2>
+                    <div class="game-price price-discount">
+                        Rp 100,000
+                        <span class="price-original">Rp 200,000</span>
+                    </div>
+                    <div class="game-date">发布日期: 2021年2月2日</div>
+                    <button class="buy-button">添加到购物车</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/capsule_sm_120.jpg" alt="Red Dead Redemption 2" class="game-image">
+                <div class="game-content">
+                    <h2 class="game-title">Red Dead Redemption 2</h2>
+                    <div class="game-price price-regular">Rp 999,000</div>
+                    <div class="game-date">发布日期: 2019年12月5日</div>
+                    <button class="buy-button">添加到购物车</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="discount-badge">-20%</div>
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/capsule_sm_120.jpg" alt="ELDEN RING" class="game-image">
+                <div class="game-content">
+                    <h2 class="game-title">ELDEN RING</h2>
+                    <div class="game-price price-discount">
+                        Rp 480,000
+                        <span class="price-original">Rp 600,000</span>
+                    </div>
+                    <div class="game-date">发布日期: 2022年2月25日</div>
+                    <button class="buy-button">添加到购物车</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/capsule_sm_120.jpg" alt="Grand Theft Auto V" class="game-image">
+                <div class="game-content">
+                    <h2 class="game-title">Grand Theft Auto V</h2>
+                    <div class="game-price price-regular">Rp 329,000</div>
+                    <div class="game-date">发布日期: 2015年4月14日</div>
+                    <button class="buy-button">添加到购物车</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="discount-badge">-75%</div>
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/capsule_sm_120.jpg" alt="The Witcher 3" class="game-image">
+                <div class="game-content">
+                    <h2 class="game-title">The Witcher 3: Wild Hunt</h2>
+                    <div class="game-price price-discount">
+                        Rp 99,750
+                        <span class="price-original">Rp 399,000</span>
+                    </div>
+                    <div class="game-date">发布日期: 2015年5月18日</div>
+                    <button class="buy-button">添加到购物车</button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570/capsule_sm_120.jpg" alt="Dota 2" class="game-image">
+                <div class="game-content">
+                    <h2 class="game-title">Dota 2</h2>
+                    <div class="game-price price-free">免费游戏</div>
+                    <div class="game-date">发布日期: 2013年7月9日</div>
+                    <button class="buy-button">立即游玩</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🎮 数据来源于Steam热销榜单 | 定期更新最新游戏信息</p>
+            <p>© 2025 Steam游戏展示页面</p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.buy-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const gameTitle = this.parentElement.querySelector('.game-title').textContent;
+                const gamePrice = this.parentElement.querySelector('.game-price').textContent;
+                
+                if (gamePrice.includes('免费')) {
+                    alert(`正在启动 ${gameTitle}...`);
+                } else if (this.textContent.includes('预购')) {
+                    alert(`${gameTitle} 预购成功！游戏将在发布后自动添加到您的游戏库。`);
+                } else {
+                    alert(`${gameTitle} 已添加到购物车！\n价格: ${gamePrice}`);
+                }
+            });
+        });
+
+        document.querySelectorAll('.game-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
